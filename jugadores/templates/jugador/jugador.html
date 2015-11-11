@@ -1,0 +1,47 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}Jugador{% endblock %}
+{% block contenido %}
+<div>
+	
+	<div class="titulo">
+		<p >Jugador</p>
+		<center>
+			<a href="/jugador/listado" title="Listado"><i class="icon-profile"></i></a>
+		</center>
+	</div>
+
+	<form action="" method="POST">{% csrf_token %}
+
+		<p class="mensaje">{{mensaje}}</p>
+		
+		<div class="form-group">
+			<div class="label">Dorsal</div>
+			<div class="input"><input type="text" value="{{objeto.dorsal}}" disabled="true"/></div>
+		</div>
+
+		<div class="form-group">
+			<div class="label">Nombre</div>
+			<div class="input"><input type="text" value="{{objeto.nombre}}" disabled="true"/></div>
+		</div>
+
+		<div class="form-group">
+			<div class="label">Apellido</div>
+			<div class="input"><input type="text" value="{{objeto.apellido}}" disabled="true"/></div>
+		</div>
+
+		<div class="form-group">
+			<div class="label">Posicion</div>
+			<div class="input"><input type="text" value="{{objeto.posicion}}" disabled="true"/></div>
+		</div>
+
+		<hr>
+
+		<div class="form-group">
+			<center>
+				<input type="submit" value="Eliminar" class="accion eliminar" />
+			</center>
+		</div>
+
+	</form>
+</div>
+{% endblock %}

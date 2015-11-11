@@ -1,0 +1,39 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}Posiciones{% endblock %}
+{% block contenido %}
+<div>
+
+	<div class="titulo">
+		<p >Posiciones</p>
+		<center>
+			<a href="/posicion/nuevo" title="Nuevo"><i class="icon-user-plus"></i></a>
+		</center>
+	</div>
+	
+	<table>
+		<tr>
+			<th>Posicion</th>
+			<th>Opciones</th>
+		</tr>
+		{% if listado %}
+		{% for objeto in listado %}
+		<tr>
+			<td>{{ objeto }}</td>
+			<td>
+				<center>
+					<a href="/posicion/{{objeto.id}}/" title="Info"><i class="icon-eye-plus"></i></a>
+					<a href="/posicion/editar/{{objeto.id}}/" title="Editar"><i class="icon-pencil"></i></a>
+				</center>
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<tr>
+			<td colspan="2">
+				<p class="sin-registro">No se han registrado posiciones en el sistema</p>
+			</td>
+		</tr>
+		{% endif %}
+	</table>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}Jugadores{% endblock %}
+{% block contenido %}
+<div>
+
+	<div class="titulo">
+		<p >Jugadores</p>
+		<center>
+			<a href="/jugador/nuevo" title="Nuevo"><i class="icon-user-plus"></i></a>
+		</center>
+	</div>
+
+	<table>
+		<tr>
+			<th>Dorsal</th>
+			<th>Jugador</th>
+			<th>Posicion</th>
+			<th>Opciones</th>
+		</tr>
+		{% if listado %}
+		{% for objeto in listado %}
+		<tr>
+			<td>{{ objeto.dorsal }}</td>
+			<td>{{ objeto }}</td>
+			<td>{{ objeto.posicion }}</td>
+			<td>
+				<center>
+					<a href="/jugador/{{objeto.id}}/" title="Info"><i class="icon-eye-plus"></i></a>
+					<a href="/jugador/editar/{{objeto.id}}/" title="Editar"><i class="icon-pencil"></i></a>
+				</center>
+			</td>
+		</tr>
+		{% endfor %}
+		{% else %}
+		<tr>
+			<td colspan="5">
+				<p class="sin-registro">No se han registrado jugadores en el sistema</p>
+			</td>
+		</tr>
+		{% endif %}
+	</table>
+</div>
+{% endblock %}

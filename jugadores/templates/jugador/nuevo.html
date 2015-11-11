@@ -1,0 +1,55 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}Jugador - Nuevo{% endblock %}
+{% block contenido %}
+<div>
+	
+	<div class="titulo">
+		<p >Jugador - Nuevo</p>
+		<center>
+			<a href="/jugador/listado" title="Listado"><i class="icon-profile"></i></a>
+		</center>
+	</div>
+	
+	<form action="" method="POST">{% csrf_token %}
+
+		<p class="mensaje">{{mensaje}}</p>
+		
+		<div class="form-group">
+			<div class="label">Dorsal</div>
+			<div class="input"><input type="text" class="upper" required="true" placeholder="Dorsal" name="dorsal" id="dorsal"/></div>
+		</div>
+
+		<div class="form-group">
+			<div class="label">Nombre</div>
+			<div class="input"><input type="text" class="upper" required="true" placeholder="Nombre" name="nombre" id="nombre"/></div>
+		</div>
+
+		<div class="form-group">
+			<div class="label">Apellido</div>
+			<div class="input"><input type="text" class="upper" required="true" placeholder="Apellido" name="apellido" id="apellido"/></div>
+		</div>
+		
+		<div class="form-group">
+			<div class="label">Posicion</div>
+			<div class="input">
+				<select required name="posicion" id="posicion">
+					<option value="">Seleccionar...</option>
+					{% for posicion in posiciones %}
+					<option value="{{posicion.id}}">{{posicion}}</option>
+					{% endfor %}
+				</select>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="form-group">
+			<center>
+				<input type="submit" value="Guardar" class="accion guardar" />
+				<input type="reset" value="Cancelar"  class="accion cancelar" />
+			</center>
+		</div>
+
+	</form>
+</div>
+{% endblock %}

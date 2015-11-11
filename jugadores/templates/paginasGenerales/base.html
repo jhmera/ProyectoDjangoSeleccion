@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "//W3C//DTD HTML 4.01//EN">
+{% load static %}
+<html lang="es">
+      <head>
+            <meta charset="utf-8" /> 
+            <title>Nuestra Seleccion | {% block title %}{% endblock %}</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" type="image/ico" href="{% static 'img/logo.jpg' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css'%}">
+            <link rel="stylesheet" type="text/css" href="{% static 'css/style.css'%}">
+            <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+      </head>
+      <body>
+
+            {% include 'paginasGenerales/header.html' %}
+
+            <div class="contenido">{% block contenido %}{% endblock %}</div>
+
+            {% include 'paginasGenerales/footer.html' %}
+
+      </body>
+</html>

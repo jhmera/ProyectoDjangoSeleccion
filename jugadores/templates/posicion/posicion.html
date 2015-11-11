@@ -1,0 +1,32 @@
+{% extends 'paginasGenerales/base.html' %}
+{% block title %}Posicion{% endblock %}
+{% block contenido %}
+<div>
+	
+	<div class="titulo">
+		<p >Posicion</p>
+		<center>
+			<a href="/posicion/listado" title="Listado"><i class="icon-profile"></i></a>
+		</center>
+	</div>
+
+	<form action="" method="POST">{% csrf_token %}
+
+		<p class="mensaje">{{mensaje}}</p>
+		
+		<div class="form-group">
+			<div class="label">Nombre</div>
+			<div class="input"><input type="text" class="upper" required="true" placeholder="Nombre" name="nombre" id="nombre" value="{{objeto.nombre}}" disabled="true"/></div>
+		</div>
+
+		<hr>
+
+		<div class="form-group">
+			<center>
+				<input type="submit" value="Eliminar" class="accion eliminar" />
+			</center>
+		</div>
+
+	</form>
+</div>
+{% endblock %}
